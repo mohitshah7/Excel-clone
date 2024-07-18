@@ -1,4 +1,4 @@
-/* generic styling */
+
 *{
     box-sizing: border-box;
     font-weight: 100;
@@ -13,10 +13,9 @@ select{
     border-right: 1px solid;
     outline:none;
 }
-/* *******************menu *************bar */
+
 .menu_bar{
-    /* border: 2px solid red; */
-    /* background-color:brown; */
+
     height:3rem;
     width:100vw;
     display: flex;
@@ -38,13 +37,13 @@ select{
 .font_family_input{
     flex:4;
     text-align: center;
-    /* width: 66.6%; */
+
 
 }
 .font_size_input{
     flex:1;
     text-align: center;
-    /* width:30.33%; */
+ 
 }
 
 .bui_container,.alignment_container,.color-container{
@@ -75,15 +74,15 @@ font-size: 1rem;
     }
     
 .formula_bar{
-    /* background-color:lightpink; */
+
     height:2rem;
 }
 .sheets_container{
-    /* background-color:lightgoldenrodyellow; */
+   
     height:2.5rem;
     display: flex;
 }
-/* sheets css */
+
 .add-sheet_container{
     height: 100%;
     min-width:30px;
@@ -101,10 +100,10 @@ font-size: 1rem;
 .sheets-list::-webkit-scrollbar {
     display: none;
   }
-  /* Hide scrollbar for IE, Edge and Firefox */
+
   .sheets-list {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;  
   }
 .sheet{
     min-width:60px;
@@ -120,10 +119,10 @@ font-size: 1rem;
     background-color: gainsboro;
 }
 
-/* ************grid css************** */
+
 .grid_container{
  height:calc(100vh - ( 5rem + 2rem + 2.5rem) );
-    /* background-color:lightgreen; */
+
     overflow: scroll;
 }
 .cell{
@@ -133,10 +132,7 @@ font-size: 1rem;
     outline:none;
     border-right:none;
     border-top:none;
-    /* font-family: 'Courier New'; */
-    /* font-family: 'Franklin Gothic Medium'; */
-    /* font-family: 'Trebuchet MS'; */
-/* font-family: Georgia, 'Times New Roman', Times, serif; */
+ 
 }
 .top_row{
     display: flex;
@@ -146,7 +142,7 @@ font-size: 1rem;
 }
 .top_row .cell{
     text-align: center;
-    /* these cells are flexed  */
+
     min-width:5rem;
     padding-top: 0.21rem;;
     font-size: 0.7rem;
@@ -189,7 +185,7 @@ font-size: 1rem;
     top: 1.35rem;
     left: 2rem;
 }
-/* ***********formula bar ****************/
+
 .formula_bar{
     display: flex;
 align-items: center;
