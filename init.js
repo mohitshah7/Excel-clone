@@ -44,7 +44,7 @@ for (let i = 0; i < 100; i++) {
         div.setAttribute("class", "cell");
        
         div.setAttribute("contentEditable", "true")
-        //   every cell identification required 
+      
         div.setAttribute("rId", i);
         div.setAttribute("cId", j);
         row.appendChild(div);
@@ -79,7 +79,7 @@ function initDB() {
 }
 initDB();
 let db = sheetsDb[0];
-// if i click on any of the cells
+
 let AllGridCells = document.querySelectorAll(".grid .cell");
 for (let i = 0; i < AllGridCells.length; i++) {
     AllGridCells[i].addEventListener("click", function (e) {
@@ -95,20 +95,19 @@ for (let i = 0; i < AllGridCells.length; i++) {
             prevCell.style.borderRight = "none";
             prevCell.style.borderTop = "none";
         }
-        // 
-        // -> then i will get the address of that particular cell
+     
         let rid = AllGridCells[i].getAttribute("rId");
         let cid = AllGridCells[i].getAttribute("cId");
-        //    get -> always in string 
+    
         rid = Number(rid);
         cid = Number(cid);
         addressInput.value = String.fromCharCode(cid + 65) + (rid + 1);
-        // cell styling bhi change
+    
         let cCell = AllGridCells[i];
         cCell.style.border = "2px solid #1B9CFC";
-        // *****************2 way binding menu styling*****************
+    
         let cellObject = db[rid][cid];
-        // font size 
+         
         let fontSize = cellObject.fontSize;
         fontSizeInput.value = fontSize;
         boldIcon.classList.remove("selected");
@@ -118,7 +117,7 @@ for (let i = 0; i < AllGridCells.length; i++) {
         for (let i = 0; i < optionElements.length; i++) {
             optionElements[i].classList.remove("selected");
         }
-        // boldness
+     
         if (cellObject.bold) {
             boldIcon.classList.add("selected");
         }
@@ -142,13 +141,12 @@ for (let i = 0; i < AllGridCells.length; i++) {
     })
 
 }
-// get first elem
+
 let firstCell = document.querySelector(".grid .cell[rId='0'][cId='0']");
 firstCell.click();
 firstCell.focus();
 function getRidCidFromAddress(address) {
-    // A-Z, 1-100
-    // B
+ 
     let AsciiValue = address.charCodeAt(0);
     let cid = AsciiValue - 65;
     let rid = Number(address.substring(1)) - 1;
@@ -158,11 +156,11 @@ function getRidCidFromAddress(address) {
 
 }
 firstSheet.addEventListener("click", function (e) {
-    //    list of sheet me se sabme se aap remove active sheet
+ 
     for (let i = 0; i < sheetList.children.length; i++) {
         sheetList.children[i].classList.remove("active-sheet")
     }
-    // given sheet add kar lo 
+  
     firstSheet.classList.add("active-sheet");
     db = sheetsDb[0];
     setinitUI();
@@ -171,14 +169,14 @@ firstSheet.addEventListener("click", function (e) {
 createSheetIcon.addEventListener("click", sheetHandler);
 function sheetHandler() {
     let noofChildren = sheetList.children.length;
-    // dom se create 
+  
     let newSheet = document.createElement("div");
     newSheet.setAttribute("class", "sheet");
     newSheet.setAttribute("sheetIdx", noofChildren);
     newSheet.textContent = `Sheet ${noofChildren + 1}`
     sheetList.appendChild(newSheet);
     initDB();
-    // active me switch
+ 
     newSheet.addEventListener("click", function () {
         for (let i = 0; i < sheetList.children.length; i++) {
             sheetList.children[i].classList.remove("active-sheet")
@@ -194,14 +192,14 @@ function sheetHandler() {
 
 function sheetOpenHandler() {
     let noofChildren = sheetList.children.length;
-    // dom se create 
+  
     let newSheet = document.createElement("div");
     newSheet.setAttribute("class", "sheet");
     newSheet.setAttribute("sheetIdx", noofChildren);
     newSheet.textContent = `Sheet ${noofChildren + 1}`
     sheetList.appendChild(newSheet);
     initDB();
-    // active me switch
+ 
     newSheet.addEventListener("click", function () {
         for (let i = 0; i < sheetList.children.length; i++) {
             sheetList.children[i].classList.remove("active-sheet")
@@ -212,11 +210,11 @@ function sheetOpenHandler() {
         setinitUI();
     })
 }
-// create sheet logic
+
 function setinitUI() {
     for (let i = 0; i < 100; i++) {
         for (let j = 0; j < 26; j++) {
-            //    set all the properties on ui with matching rid,cid
+      
             let cellObject = db[i][j];
             let tobeChangedCell = document.querySelector(`.grid .cell[rId='${i}'][cId='${j}']`);
             tobeChangedCell.innerText = cellObject.value;
